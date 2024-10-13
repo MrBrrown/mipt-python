@@ -20,3 +20,17 @@ def solution3():
             line = line.replace('—', '')
             words_count += len(line.split())
     print("Words count: ", words_count)
+
+
+def solution4():
+    with open("data/input.txt", 'r') as file, open("unique_output.txt", "w+") as dist:
+        unique_lines = set()
+        for line in file:
+            line = line.replace('. ', '.')
+            unique_lines.update(set(line.split(".")))
+
+        for line in unique_lines:
+            line += '\n'
+            dist.writelines(line)
+
+    print("Done!")
